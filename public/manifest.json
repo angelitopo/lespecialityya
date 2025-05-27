@@ -1,0 +1,23 @@
+{
+  "name": "Ghibli Café",
+  "short_name": "GCafé",
+  "description": "Studio Ghibli-inspired café app with top-up, loyalty cards, and ordering",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#a8dadc",
+  "theme_color": "#1d3557",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+} 

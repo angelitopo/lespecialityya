@@ -1,0 +1,620 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .ghibli-container {
+    @apply max-w-7xl mx-auto px-4 py-8 bg-white/90 rounded-lg shadow-md;
+  }
+
+  .ghibli-nav {
+    @apply bg-ghibli-blue p-4 rounded-lg flex flex-wrap justify-center mb-8 shadow-md;
+  }
+
+  .ghibli-nav a {
+    @apply text-text-light no-underline px-4 py-2 mx-2 rounded transition-colors;
+  }
+
+  .ghibli-nav a:hover {
+    @apply bg-white/20;
+  }
+
+  .ghibli-button {
+    @apply bg-ghibli-blue text-white border-none px-5 py-2.5 rounded-full text-base cursor-pointer transition-all shadow-md;
+  }
+
+  .ghibli-button:hover {
+    @apply bg-ghibli-dark -translate-y-0.5 shadow-lg;
+  }
+
+  .balance-card {
+    @apply bg-ghibli-light-blue rounded-xl p-8 text-center mb-8 shadow-lg relative overflow-hidden;
+  }
+
+  .balance-amount {
+    @apply text-5xl font-bold text-ghibli-dark my-4;
+  }
+
+  .news-item {
+    @apply border-l-4 border-ghibli-yellow p-4 mb-6 bg-ghibli-light-blue/10 rounded-r-lg;
+  }
+
+  /* QR Scanner specific styles */
+  .qr-scanner-container {
+    @apply max-w-md mx-auto p-6 bg-white rounded-xl shadow-md;
+  }
+
+  .qr-reader {
+    @apply w-full aspect-square mb-4;
+  }
+
+  .qr-reader video {
+    @apply w-full h-full object-cover rounded-lg;
+  }
+
+  .qr-reader select {
+    @apply w-full p-2 mb-4 border-2 border-ghibli-light-blue rounded-lg;
+  }
+
+  .qr-reader button {
+    @apply w-full p-2 mb-4 bg-ghibli-blue text-white rounded-lg transition-colors;
+  }
+
+  .qr-reader button:hover {
+    @apply bg-ghibli-dark;
+  }
+
+  /* Staff dashboard specific styles */
+  .dashboard-controls {
+    @apply mb-8;
+  }
+
+  .status-filters {
+    @apply flex flex-wrap gap-4;
+  }
+
+  .status-filter {
+    @apply px-4 py-2 rounded-lg bg-white border-2 border-ghibli-blue text-ghibli-blue font-semibold transition-all;
+  }
+
+  .status-filter:hover {
+    @apply bg-ghibli-light-blue border-ghibli-dark;
+  }
+
+  .status-filter.selected {
+    @apply bg-ghibli-blue text-white border-ghibli-blue;
+  }
+
+  .orders-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+  }
+
+  .order-card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden;
+  }
+
+  .order-header {
+    @apply p-6 border-b border-gray-200 flex justify-between items-start;
+  }
+
+  .order-info h3 {
+    @apply text-xl font-bold text-ghibli-dark mb-1;
+  }
+
+  .order-date {
+    @apply text-text-secondary text-sm mb-1;
+  }
+
+  .customer-info {
+    @apply text-text-secondary text-sm;
+  }
+
+  .status-badge {
+    @apply px-3 py-1 rounded-full text-sm font-semibold;
+  }
+
+  .order-items {
+    @apply p-6 border-b border-gray-200;
+  }
+
+  .order-item {
+    @apply flex justify-between items-center py-2;
+  }
+
+  .item-details {
+    @apply flex flex-col gap-1;
+  }
+
+  .item-name {
+    @apply text-ghibli-dark;
+  }
+
+  .item-quantity {
+    @apply text-text-secondary text-sm;
+  }
+
+  .item-notes {
+    @apply text-text-secondary text-sm italic;
+  }
+
+  .item-price {
+    @apply font-semibold text-ghibli-dark;
+  }
+
+  .order-footer {
+    @apply p-6 flex justify-between items-center;
+  }
+
+  .order-total {
+    @apply flex items-center gap-2;
+  }
+
+  .order-total span:first-child {
+    @apply text-text-secondary;
+  }
+
+  .total-amount {
+    @apply text-xl font-bold text-ghibli-dark;
+  }
+
+  .order-actions {
+    @apply flex gap-2;
+  }
+
+  .action-button {
+    @apply px-4 py-2 rounded-lg text-white font-semibold transition-colors;
+  }
+
+  .action-button.prepare {
+    @apply bg-ghibli-blue hover:bg-ghibli-dark;
+  }
+
+  .action-button.ready {
+    @apply bg-ghibli-green hover:bg-ghibli-light-green;
+  }
+
+  .action-button.complete {
+    @apply bg-ghibli-green hover:bg-ghibli-light-green;
+  }
+
+  .action-button.cancel {
+    @apply bg-ghibli-red hover:bg-red-600;
+  }
+
+  /* Order history specific styles */
+  .orders-list {
+    @apply space-y-6;
+  }
+
+  .order-card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden;
+  }
+
+  .order-header {
+    @apply p-6 border-b border-gray-200 flex justify-between items-start;
+  }
+
+  .order-info h3 {
+    @apply text-xl font-bold text-ghibli-dark mb-1;
+  }
+
+  .order-date {
+    @apply text-text-secondary text-sm;
+  }
+
+  .status-badge {
+    @apply px-3 py-1 rounded-full text-sm font-semibold;
+  }
+
+  .order-items {
+    @apply p-6 border-b border-gray-200;
+  }
+
+  .order-item {
+    @apply flex justify-between items-center py-2;
+  }
+
+  .item-details {
+    @apply flex items-center gap-2;
+  }
+
+  .item-name {
+    @apply text-ghibli-dark;
+  }
+
+  .item-quantity {
+    @apply text-text-secondary text-sm;
+  }
+
+  .item-price {
+    @apply font-semibold text-ghibli-dark;
+  }
+
+  .order-footer {
+    @apply p-6 flex justify-between items-center;
+  }
+
+  .order-total {
+    @apply flex items-center gap-2;
+  }
+
+  .order-total span:first-child {
+    @apply text-text-secondary;
+  }
+
+  .total-amount {
+    @apply text-xl font-bold text-ghibli-dark;
+  }
+
+  .collect-button {
+    @apply bg-ghibli-green text-white px-6 py-2 rounded-lg transition-colors;
+  }
+
+  .collect-button:hover {
+    @apply bg-ghibli-light-green;
+  }
+
+  .completion-time {
+    @apply text-text-secondary text-sm;
+  }
+
+  .no-orders {
+    @apply text-center py-12;
+  }
+
+  .no-orders p {
+    @apply text-text-secondary mb-4;
+  }
+
+  /* Menu specific styles */
+  .menu-container {
+    @apply mt-8;
+  }
+
+  .categories {
+    @apply flex flex-wrap gap-4 mb-8;
+  }
+
+  .category-button {
+    @apply px-6 py-2 rounded-full bg-white border-2 border-ghibli-blue text-ghibli-blue font-semibold transition-all;
+  }
+
+  .category-button:hover {
+    @apply bg-ghibli-light-blue border-ghibli-dark;
+  }
+
+  .category-button.selected {
+    @apply bg-ghibli-blue text-white border-ghibli-blue;
+  }
+
+  .menu-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+
+  .menu-item {
+    @apply bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1;
+  }
+
+  .menu-item-image {
+    @apply relative h-48 w-full;
+  }
+
+  .menu-item-details {
+    @apply p-6;
+  }
+
+  .menu-item-details h3 {
+    @apply text-xl font-bold text-ghibli-dark mb-2;
+  }
+
+  .menu-item-details .description {
+    @apply text-text-secondary mb-4;
+  }
+
+  .menu-item-details .price {
+    @apply text-xl font-semibold text-ghibli-green mb-4;
+  }
+
+  .add-to-cart-button {
+    @apply w-full bg-ghibli-blue text-white py-2 rounded-lg transition-colors;
+  }
+
+  .add-to-cart-button:hover {
+    @apply bg-ghibli-dark;
+  }
+
+  .add-to-cart-button:disabled {
+    @apply bg-gray-300 cursor-not-allowed;
+  }
+
+  .cart-container {
+    @apply fixed bottom-0 left-0 right-0 bg-white shadow-lg rounded-t-xl p-6 transform transition-transform duration-300;
+  }
+
+  .cart-container.hidden {
+    @apply translate-y-full;
+  }
+
+  .cart-items {
+    @apply max-h-60 overflow-y-auto mb-4;
+  }
+
+  .cart-item {
+    @apply flex justify-between items-center py-2 border-b border-gray-200;
+  }
+
+  .cart-item-details h4 {
+    @apply font-semibold text-ghibli-dark;
+  }
+
+  .quantity-controls {
+    @apply flex items-center gap-2;
+  }
+
+  .quantity-controls button {
+    @apply w-8 h-8 rounded-full bg-ghibli-light-blue text-ghibli-dark font-bold flex items-center justify-center transition-colors;
+  }
+
+  .quantity-controls button:hover {
+    @apply bg-ghibli-blue text-white;
+  }
+
+  .quantity-controls span {
+    @apply w-8 text-center font-semibold;
+  }
+
+  .cart-total {
+    @apply flex justify-between items-center pt-4 border-t border-gray-200;
+  }
+
+  .cart-total p {
+    @apply text-xl font-bold text-ghibli-dark;
+  }
+
+  .checkout-button {
+    @apply bg-ghibli-green text-white px-6 py-2 rounded-lg transition-colors;
+  }
+
+  .checkout-button:hover {
+    @apply bg-ghibli-light-green;
+  }
+
+  .loading {
+    @apply text-center text-text-secondary py-8;
+  }
+
+  /* Top-up specific styles */
+  .topup-form {
+    @apply max-w-md mx-auto mt-8;
+  }
+
+  .predefined-amounts {
+    @apply grid grid-cols-2 gap-4 mb-8;
+  }
+
+  .amount-button {
+    @apply bg-white border-2 border-ghibli-blue text-ghibli-blue px-6 py-4 rounded-lg text-xl font-semibold transition-all;
+  }
+
+  .amount-button:hover {
+    @apply bg-ghibli-light-blue border-ghibli-dark;
+  }
+
+  .amount-button.selected {
+    @apply bg-ghibli-blue text-white border-ghibli-blue;
+  }
+
+  .custom-amount {
+    @apply mb-8;
+  }
+
+  .custom-amount label {
+    @apply block text-text-secondary mb-2;
+  }
+
+  .custom-amount input {
+    @apply w-full px-4 py-2 border-2 border-ghibli-light-blue rounded-lg text-lg;
+  }
+
+  .custom-amount input:focus {
+    @apply border-ghibli-blue outline-none;
+  }
+
+  .success-message {
+    @apply text-center;
+  }
+
+  .success-message h1 {
+    @apply text-4xl font-bold text-ghibli-green mb-8;
+  }
+
+  .success-message p {
+    @apply text-text-secondary mb-4;
+  }
+
+  /* Loyalty card specific styles */
+  .loyalty-card {
+    @apply max-w-2xl mx-auto mt-8;
+  }
+
+  .qr-container {
+    @apply bg-white p-8 rounded-xl shadow-md mb-8 text-center;
+  }
+
+  .qr-code {
+    @apply bg-white p-4 rounded-lg inline-block;
+  }
+
+  .qr-instruction {
+    @apply text-text-secondary mt-4;
+  }
+
+  .stamps-container {
+    @apply bg-ghibli-light-blue p-8 rounded-xl shadow-md;
+  }
+
+  .stamps-container h2 {
+    @apply text-2xl font-bold text-ghibli-dark mb-6 text-center;
+  }
+
+  .stamps-grid {
+    @apply grid grid-cols-5 gap-4 mb-8;
+  }
+
+  .stamp {
+    @apply aspect-square bg-white rounded-lg flex items-center justify-center text-2xl font-bold text-ghibli-light-blue border-2 border-ghibli-light-blue;
+  }
+
+  .stamp.stamped {
+    @apply bg-ghibli-green text-white border-ghibli-green;
+  }
+
+  .rewards-info {
+    @apply text-center;
+  }
+
+  .rewards-info p {
+    @apply text-ghibli-dark text-lg;
+  }
+
+  .rewards-info p:first-child {
+    @apply font-semibold mb-2;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.decorative-cloud {
+  @apply absolute opacity-70;
+  animation: float 10s ease-in-out infinite;
+}
+
+.decorative-cloud.top-left {
+  @apply top-[10%] left-[5%];
+}
+
+.decorative-cloud.top-right {
+  @apply top-[5%] right-[10%];
+  animation-delay: 2s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ghibli-nav {
+    @apply flex-col;
+  }
+  
+  .ghibli-nav a {
+    @apply my-2;
+  }
+  
+  .balance-amount {
+    @apply text-4xl;
+  }
+
+  .predefined-amounts {
+    @apply grid-cols-1;
+  }
+
+  .stamps-grid {
+    @apply grid-cols-3 gap-3;
+  }
+
+  .menu-grid {
+    @apply grid-cols-1;
+  }
+
+  .cart-container {
+    @apply p-4;
+  }
+
+  .order-header {
+    @apply flex-col gap-4;
+  }
+
+  .order-footer {
+    @apply flex-col gap-4 items-start;
+  }
+
+  .orders-grid {
+    @apply grid-cols-1;
+  }
+
+  .status-filters {
+    @apply flex-col;
+  }
+
+  .order-actions {
+    @apply flex-col w-full;
+  }
+
+  .action-button {
+    @apply w-full;
+  }
+
+  .qr-reader {
+    @apply aspect-square;
+  }
+} 
